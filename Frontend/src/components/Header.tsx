@@ -30,7 +30,7 @@ const Header = () => {
               <Zap className="w-6 h-6 text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl brand-logo text-gradient">Nexus AI</span>
+              <span className="text-xl brand-logo text-gradient">Agent Force</span>
               <span className="text-xs brand-tagline text-muted-foreground -mt-1">Research Platform</span>
             </div>
           </Link>
