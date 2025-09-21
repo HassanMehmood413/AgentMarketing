@@ -1,4 +1,4 @@
-![Agent Force Banner]("image.png")
+<img src="docs/image.png" alt="Agent Force Banner" width="1000">
 
 ---
 
