@@ -1,0 +1,86 @@
+﻿applications:
+  - id: "app"
+    name: "Default Application"
+    description: "Default application for testing"
+    privacyKeys:
+      - "priv"
+
+registry:
+  interface:
+    options:
+      - name: "MODEL_API_KEY"
+        type: "string"
+        description: "API key for the model provider"
+      - name: "MODEL_NAME"
+        type: "string"
+        description: "What model to use (e.g 'gpt-4.1')"
+        default: "gpt-4.1"
+      - name: "MODEL_PROVIDER"
+        type: "string"
+        description: "What model provider to use (e.g 'openai', etc)"
+        default: "openai"
+      - name: "MODEL_MAX_TOKENS"
+        type: "string"
+        description: "Max tokens to use"
+        default: "16000"
+      - name: "MODEL_TEMPERATURE"
+        type: "string"
+        description: "What model temperature to use"
+        default: "0.3"
+      - name: "TIMEOUT_MS"
+        type: "number"
+        description: "Connection/tool timeouts in ms"
+        default: 60000
+
+    runtime:
+      type: "executable"
+      command: [ "bash", "-c", "../run_agent.sh ../agents/interface/main.py" ]
+      environment:
+        - option: "MODEL_API_KEY"
+        - option: "MODEL_NAME"
+        - option: "MODEL_PROVIDER"
+        - option: "MODEL_MAX_TOKENS"
+        - option: "MODEL_TEMPERATURE"
+        - option: "TIMEOUT_MS"
+
+  research-agent:
+    options:
+      - name: "OPENAI_API_KEY"
+        type: "string"
+        description: "OpenAI API Key for LLM operations"
+        required: true
+      - name: "topic"
+        type: "string"
+        description: "Research topic"
+        required: true
+      - name: "max_analysts"
+        type: "integer"
+        description: "Maximum number of analysts to use"
+        default: 2
+      - name: "human_analyst_feedback"
+        type: "string"
+        description: "Human feedback for analyst"
+        default: "continue"
+
+    runtime:
+      type: "executable"
+      command: ["python", "graph/graph_main.py"]
+      working_directory: "MultiAgents_Workflow/agents/ResearchAgent"
+      environment:
+        - name: "OPENAI_API_KEY"
+          from: "OPENAI_API_KEY"
+
+  report-agent:
+    options:
+      - name: "OPENAI_API_KEY"
+        type: "string"
+        description: "OpenAI API Key for LLM operations"
+        required: true
+
+    runtime:
+      type: "executable"
+      command: ["python", "graph/graph.py"]
+      working_directory: "MultiAgents_Workflow/agents/ReportAgent"
+      environment:
+        - name: "OPENAI_API_KEY"
+          from: "OPENAI_API_KEY"

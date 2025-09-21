@@ -1,0 +1,6 @@
+# Local agents for development
+[[local-agent]]
+path = "D:\\AI\\Gen_AI_Projects\\Hackathons\\28_Internet_Of_Agents\\MultiAgents_Workflow\\agents\\ResearchAgent"
+
+[[local-agent]]
+path = "D:\\AI\\Gen_AI_Projects\\Hackathons\\28_Internet_Of_Agents\\MultiAgents_Workflow\\agents\\ReportAgent"

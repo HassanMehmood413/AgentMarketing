@@ -1,0 +1,14 @@
+[agent]
+name = "research-agent"
+version = "0.1.0"
+description = "LangGraph research agent that gathers and synthesizes sources for comprehensive analysis"
+
+[options]
+OPENAI_API_KEY = { type = "string", description = "OpenAI API Key for LLM operations"}
+TAVILY_API_KEY = { type = "string", description = "Tavily API Key for LLM Search"}
+topic = { type = "string", description = "Research topic to analyze", required = true }
+max_analysts = { type = "number", description = "Maximum number of analysts to use", default = 2 }
+human_analyst_feedback = { type = "string", description = "Human feedback for analyst", default = "continue" }
+
+[runtimes.executable]
+command = ["poetry", "run", "python", "run_agent.py"]

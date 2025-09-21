@@ -1,0 +1,108 @@
+# ---------------------------------------------------
+# OS / Editor cruft
+# ---------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.code-workspace
+.direnv/
+.envrc
+
+# ---------------------------------------------------
+# Environment files (commit only examples)
+# ---------------------------------------------------
+.env
+.env.*
+!.env.example
+!.env*.example
+
+# ---------------------------------------------------
+# Logs & misc
+# ---------------------------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+coverage/
+.coverage
+coverage.xml
+pytestdebug.log
+
+# ---------------------------------------------------
+# Python / FastAPI (backend)
+# ---------------------------------------------------
+# Byte-compiled / cache
+**/__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Tooling caches
+.mypy_cache/
+.pytype/
+.pyre/
+.ruff_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local databases & storage
+*.sqlite3
+*.db
+*.db-journal
+
+# Common frameworks (adjust as needed)
+# (Generally keep Alembic migrations in git)
+# alembic.ini  # <- keep if you use it
+# migrations/  # <- usually keep (don’t ignore)
+
+# ---------------------------------------------------
+# Node / Next.js (frontend)
+# ---------------------------------------------------
+**/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+frontend/.parcel-cache/
+frontend/.eslintcache
+frontend/.stylelintcache
+frontend/.swc/
+frontend/.vercel/
+
+# Next.js env (already covered above, listed for clarity)
+frontend/.env.local
+frontend/.env.*.local
+
+# Lockfiles: keep these in git for reproducible builds
+# (So do NOT ignore: package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb)
+
+# ---------------------------------------------------
+# Images & static caches (optional)
+# ---------------------------------------------------
+*.orig
+*.tmp
+*.temp
+
+# ---------------------------------------------------
+# Docker (optional)
+# ---------------------------------------------------
+# Uncomment if you keep local-only compose overrides
+# docker-compose.override.yml
+# .docker/

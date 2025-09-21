@@ -1,0 +1,11 @@
+[agent]
+name = "report-agent"
+version = "0.1.0"
+description = "LangGraph writer agent that renders markdown to comprehensive reports"
+
+[options]
+OPENAI_API_KEY = { type = "string", description = "OpenAI API Key for LLM operations" }
+TAVILY_API_KEY = { type = "string", description = "Tavily API Key for LLM Search"}
+
+[runtimes.executable]
+command = ["poetry", "run", "python", "run_agent.py"]
